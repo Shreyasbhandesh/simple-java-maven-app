@@ -7,7 +7,7 @@ pipeline {
         SONAR_CRED_ID = 'sonar'
         MAX_BUILDS_TO_KEEP = 5
         NEXUS_URL = 'http://15.206.79.47:32000/repository/sample-releases/'
-        NEXUS_DOCKER_REPO = '15.206.79.47:5000'
+        NEXUS_DOCKER_REPO = '15.206.79.47:32001'
         NEXUS_CREDENTIAL_ID = 'nexus-credentials'
     }
 
