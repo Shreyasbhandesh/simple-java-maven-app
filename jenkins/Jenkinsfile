@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: "${GIT_REPO_URL}", branch: 'master'
+                git credentialsId: 'Git hub', branch: 'master', url: 'https://github.com/Shreyasbhandesh/Java-app.git'
             }
         }
 
