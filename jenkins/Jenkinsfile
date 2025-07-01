@@ -7,7 +7,7 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/Shreyasbhandesh/simple-java-maven-app.git'
         SONAR_URL = 'http://3.109.144.111:30900/'
         SONAR_TOKEN = credentials('Sonar-token-id')
-        SONAR_CRED_ID = credentials('Sonar-token-id')
+        SONAR_CRED_ID = 'sonar'
         MAX_BUILDS_TO_KEEP = 5
         NEXUS_URL = 'http://15.206.79.47:32000//repository/sample-releases/'
         NEXUS_DOCKER_REPO = '15.206.79.47:5000' // Updated to correct HTTP port
