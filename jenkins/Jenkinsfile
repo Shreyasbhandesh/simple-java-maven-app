@@ -50,7 +50,7 @@ pipeline {
                            export PROJECT_NAME=${projectName}
                             mvn clean verify sonar:sonar \
                           -Dsonar.projectKey=\$PROJECT_NAME \
-                           -Dsonar.host.url=\$SONAR_HOST \
+                           -Dsonar.host.url=${SONAR_URL}
                            -Dsonar.login=\$SONAR_TOKEN
                               """
                      }
