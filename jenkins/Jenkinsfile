@@ -39,19 +39,21 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def projectName = "${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('/', '-')
-                    sh """
+stage('SonarQube Analysis') {
+    steps {
+        script {
+            def projectName = "${env.JOB_NAME}-${env.BUILD_NUMBER}".replace('/', '-')
+            withCredentials([string(credentialsId: 'Sonar-token-id', variable: 'SONAR_TOKEN')]) {
+                sh '''
                     mvn clean verify sonar:sonar \
-                      -Dsonar.projectKey=${projectName} \
-                      -Dsonar.host.url=${SONAR_URL} \
-                      -Dsonar.login=${SONAR_TOKEN}
-                    """
-                }
+                    -Dsonar.projectKey=$PROJECT_NAME \
+                    -Dsonar.host.url=$SONAR_URL \
+                    -Dsonar.login=$SONAR_TOKEN
+                '''
             }
         }
+    }
+}
 
         stage('Build and Tag Artifact') {
             steps {
